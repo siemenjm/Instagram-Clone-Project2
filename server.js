@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 // ROUTERS
-// app.use('/posts', controllers.posts)
+app.use('/posts', controllers.posts);
 
 // HOME ROUTE
 app.get('/', (req, res) => {
