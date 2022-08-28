@@ -16,6 +16,7 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 // ROUTERS
+app.use('/comments', controllers.comments);
 app.use('/posts', controllers.posts);
 app.use('/users', controllers.users);
 
