@@ -17,6 +17,7 @@ app.use(methodOverride('_method'));
 
 // ROUTERS
 app.use('/posts', controllers.posts);
+app.use('/users', controllers.users);
 
 // HOME ROUTE
 app.get('/', (req, res) => {
