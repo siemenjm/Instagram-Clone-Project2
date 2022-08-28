@@ -6,40 +6,40 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
 // GET ROUTES
-// new post page
+// new user page
 router.get("/new", (req, res) => {
   res.send('NEW USER PAGE');
 });
 
-// edit post page
+// edit user page
 router.get("/:userId/edit", (req, res) => {
     res.send('EDIT USER PAGE');
 });
 
-// post show page
+// user show page
 router.get("/:userId", (req, res) => {
     res.send('USER SHOW PAGE');
 });
 
-// post index page
+// user index page
 router.get("/", (req, res) => {
     res.send('USER INDEX PAGE');
 });
 
 // POST ROUTE
-// submitting new post
+// creating new user
 router.post("/", (req, res) => {
     res.send('NEW USER CREATED');
 });
 
 // PUT ROUTE
-// update post
+// update user
 router.put("/:userId", (req, res) => {
     res.send('USER UPDATED');
 });
 
 // DELETE ROUTE
-// destroy post
+// destroy user
 router.delete("/:userId", async (req, res) => {
     res.send('USER DELETED');
 });
