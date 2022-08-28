@@ -17,7 +17,7 @@ router.get("/:postId/edit", (req, res) => {
 });
 
 // post show page
-router.get("/:postIndex", (req, res) => {
+router.get("/:postId", (req, res) => {
     res.send('POST SHOW PAGE');
 });
 
