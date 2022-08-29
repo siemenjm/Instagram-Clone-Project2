@@ -1,5 +1,7 @@
+// IMPORTS
 const express = require("express");
 const router = express.Router();
+const db = require('../models');
 
 // MIDDLEWARE
 router.use(express.json());
@@ -17,13 +19,31 @@ router.get("/:userId/edit", (req, res) => {
 });
 
 // user show page
-router.get("/:userId", (req, res) => {
-    res.send('USER SHOW PAGE');
+router.get("/:userId", async (req, res) => {
+    try {
+        const user = await db.User.findById(req.params.userId);
+        const context = {
+            user: user
+        };
+
+        res.send(user);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // user index page
-router.get("/", (req, res) => {
-    res.send('USER INDEX PAGE');
+router.get("/", async (req, res) => {
+    try {
+        const allUsers = await db.User.find();
+        const context = {
+            users: allUsers
+        };
+
+        res.send(allUsers);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // POST ROUTE
