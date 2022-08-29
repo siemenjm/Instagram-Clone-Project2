@@ -23,12 +23,23 @@ router.get("/:postId", async (req, res) => {
     try {
         const post = await db.Post.findById(req.params.postId);
         const postComments = await db.Comment.find({post: post._id});
+        
+        let commentUsers = [];
+        for (let i = 0; i < postComments.length; i++) {
+            let commentUser = await db.User.findById(postComments[i].user);
+            commentUsers.push(commentUser);
+        }
+
+        const postUser = await db.User.findById(post.user._id);
+        
         const context = {
             post: post,
-            comments: postComments
+            comments: postComments,
+            commentUsers: commentUsers,
+            user: postUser
         };
 
-        res.send(context)
+        res.render('show.ejs', context);
     } catch(err) {
         console.log(err);
     }
