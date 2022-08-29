@@ -9,61 +9,69 @@ router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
 
 // GET ROUTES
-// new user page
-// router.get("/new", (req, res) => {
-//   res.send('NEW USER PAGE');
-// });
+// register page
+router.get('/register', (req, res) => {
+  res.render('auth/register');
+});
 
-// // edit user page
-// router.get("/:userId/edit", (req, res) => {
-//     res.send('EDIT USER PAGE');
-// });
+// login page
+router.get('/login', (req, res) => {
+    res.render('auth/login');
+});
 
-// // user show page
-// router.get("/:userId", async (req, res) => {
-//     try {
-//         const user = await db.User.findById(req.params.userId);
-//         const context = {
-//             user: user
-//         };
+// logout
+router.get('/logout', async (req, res) => {
+    try {
+        await req.session.destroy();
+        return res.redirect('/login');
+    } catch(err) {
+        console.log(err);
+    }
+});
 
-//         res.send(user);
-//     } catch(err) {
-//         console.log(err);
-//     }
-// });
+// POST ROUTES
+// create new user
+router.post('/register', async (req, res) => {
+    try {
+        const foundUser = await db.User.exists({ email: req.body.email});
+        if (foundUser) {
+            return res.redirect('/login');
+        }
 
-// // user index page
-// router.get("/", async (req, res) => {
-//     try {
-//         const allUsers = await db.User.find();
-//         const context = {
-//             users: allUsers
-//         };
+        const salt = await bcrypt.genSalt(12);
+        const hash = await bcrypt.hash(req.body.password, salt);
+        req.body.password = hash;
 
-//         res.send(allUsers);
-//     } catch(err) {
-//         console.log(err);
-//     }
-// });
+        const newUser = await db.User.create(req.body);
+        res.redirect('/login');
+    } catch(err) {
+        console.log(err);
+    }
+});
 
-// // POST ROUTE
-// // creating new user
-// router.post("/", (req, res) => {
-//     res.send('NEW USER CREATED');
-// });
+// login user
+router.post('/login', async (req, res) => {
+    try {
+        const foundUser = await db.User.findOne({ email: req.body.email });
+        if (!foundUser) {
+            return res.redirect('/register');
+        }
 
-// // PUT ROUTE
-// // update user
-// router.put("/:userId", (req, res) => {
-//     res.send('USER UPDATED');
-// });
+        const match = await bcrypt.compare(req.body.password, foundUser.password);
+        if (!match) {
+            return res.send('password invalid')
+        }
 
-// // DELETE ROUTE
-// // destroy user
-// router.delete("/:userId", async (req, res) => {
-//     res.send('USER DELETED');
-// });
+        req.session.currentUser = {
+            id: foundUser._id,
+            username: foundUser.username
+        };
+
+        return res.redirect('/posts');
+    } catch(err) {
+        console.log(err);
+    }
+});
 
 // EXPORT ROUTER
 module.exports = router;
