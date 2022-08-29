@@ -3,6 +3,9 @@ const express = require('express');
 const methodOverride = require('method-override');
 require('dotenv').config();
 
+// TEMPORARY DB CONNECTION
+require('./config/db.connection');
+
 // CONTROLLER IMPORTS
 const controllers = require('./controllers')
 
