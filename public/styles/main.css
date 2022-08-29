@@ -1,3 +1,41 @@
 body{
-    background-color: rgb(13, 148, 88);
+    background-color: rgb(251, 173, 80);
+}
+
+.navbar{
+    position: relative;
+    display: inline-block;
+    background-color: beige;
+    color: rgb(188, 42, 141);
+    padding: 10px;
+    margin: 0 10px 0 0;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: "Noto Sans", sans-serif
+}
+
+.title{
+    position: relative;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: black;
+    -webkit-transition: all 0.8s ease 0s;
+    -o-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+}
+
+.container{
+    display: inline-box;
+    padding : 20px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: lightslategrey;
+    -webkit-transition: all 1s ease 0.2s;
+    -o-transition: all 1s ease 0.2s;
+    transition: all 1s ease 0.2s;
 }
