@@ -1,5 +1,7 @@
+// IMPORTS
 const express = require("express");
 const router = express.Router();
+const db = require('../models');
 
 // MIDDLEWARE
 router.use(express.json());
@@ -17,13 +19,31 @@ router.get("/:commentId/edit", (req, res) => {
 });
 
 // comment show page
-router.get("/:commentId", (req, res) => {
-    res.send('COMMENT SHOW PAGE');
+router.get("/:commentId", async (req, res) => {
+    try {
+        const comment = await db.Comment.findById(req.params.commentId);
+        const context = {
+            comment: comment
+        };
+
+        res.send(comment);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // comment index page
-router.get("/", (req, res) => {
-    res.send('COMMENT INDEX PAGE');
+router.get("/", async (req, res) => {
+    try {
+        const allComments = await db.Comment.find();
+        const context = {
+            comments: allComments
+        };
+
+        res.send(allComments);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // POST ROUTE
