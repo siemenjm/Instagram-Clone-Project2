@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<%- include( 'partials/head.ejs' )  %>
+
+<body>
+    <%- include( 'partials/nav.ejs' )  %>
+
+    <section>
+        <div>
+            <h2 class="title">Instagram post by: <%=post.username%>
+            </h2>
+
+        </div>
+    </section>
+
+    <main class="container">
+        <div>
+            <h4> <%= post.username %> </h4>
+            <h6> <%= post.createdAt %> </p>
+            <img src="<%=post.image%>" style="max-width: 500px;" />
+            <p> <%= post.title %> </p>
+            <p> <%= post.likes %> </p>
+            <h5>Comments: </h5>
+        <ul>
+            <li> <%= comments[i].user._id.username %> <%= comments[i].content %> <%= comments[i].createdAt %> </li>
+        </ul>
+
+<!-- This is a stretch feature according to eric 
+    since user authorization issues(?)
+
+            <div class = "deleteButton">
+                <p class="control">
+                    <form action="/posts/<= id %>?_method=DELETE" method="POST">
+                            <input class="button is-danger" type="submit" value="Delete Post"/>                    
+                    </form>
+                </p>
+-->
+
+        <section>
+            <h2>Add a new comment</h2>
+            <form method="POST" action="/posts">
+    
+                <div>
+                    Comment: 
+                    <input name="comment" type="string" placeholder="Enter your comment"/>
+                </div>
+    
+                <button type="submit">Add your comment</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
