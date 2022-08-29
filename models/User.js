@@ -11,10 +11,10 @@ const userSchema = new mongoose.Schema(
             required: [true, "user must have valid email"],
             unique: [true, "there can only be one user per email"]
         },
-        // password: {
-        //     type: String,
-        //     required: [true, "user must have valid password"],
-        // },
+        password: {
+            type: String,
+            required: [true, "user must have valid password"],
+        },
     },
     { timestamps: true }
 );
