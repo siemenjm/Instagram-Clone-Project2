@@ -23,6 +23,7 @@ router.get('/login', (req, res) => {
 router.get('/logout', async (req, res) => {
     try {
         await req.session.destroy();
+        console.log('session destroyed');
         return res.redirect('/login');
     } catch(err) {
         console.log(err);
@@ -35,6 +36,7 @@ router.post('/register', async (req, res) => {
     try {
         const foundUser = await db.User.exists({ email: req.body.email});
         if (foundUser) {
+            console.log('email already in use');
             return res.redirect('/login');
         }
 
@@ -43,6 +45,7 @@ router.post('/register', async (req, res) => {
         req.body.password = hash;
 
         const newUser = await db.User.create(req.body);
+        console.log('new user created');
         res.redirect('/login');
     } catch(err) {
         console.log(err);
