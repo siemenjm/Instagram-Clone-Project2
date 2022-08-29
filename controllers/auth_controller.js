@@ -19,6 +19,16 @@ router.get('/login', (req, res) => {
     res.render('auth/login');
 });
 
+// logout
+router.get('/logout', async (req, res) => {
+    try {
+        await req.session.destroy();
+        return res.redirect('/login');
+    } catch(err) {
+        console.log(err);
+    }
+});
+
 // POST ROUTES
 // create new user
 router.post('/register', async (req, res) => {
