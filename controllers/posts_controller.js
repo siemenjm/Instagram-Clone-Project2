@@ -52,10 +52,10 @@ router.get("/", async (req, res) => {
         const context = {
             posts: allPosts
         };
-
-        res.send(allPosts);
+        res.render('index.ejs', context);
     } catch(err) {
         console.log(err);
+        res.redirect('/404')
     }
 });
 
