@@ -22,11 +22,13 @@ router.get("/:postId/edit", (req, res) => {
 router.get("/:postId", async (req, res) => {
     try {
         const post = await db.Post.findById(req.params.postId);
+        const postComments = await db.Comment.find({post: post._id});
         const context = {
-            post: post
+            post: post,
+            comments: postComments
         };
 
-        res.send(post);
+        res.send(context)
     } catch(err) {
         console.log(err);
     }
