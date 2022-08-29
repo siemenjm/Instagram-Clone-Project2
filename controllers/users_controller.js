@@ -19,8 +19,17 @@ router.get("/:userId/edit", (req, res) => {
 });
 
 // user show page
-router.get("/:userId", (req, res) => {
-    res.send('USER SHOW PAGE');
+router.get("/:userId", async (req, res) => {
+    try {
+        const user = await db.User.findById(req.params.userId);
+        const context = {
+            user: user
+        };
+
+        res.send(user);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // user index page
