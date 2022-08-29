@@ -25,7 +25,7 @@ app.use('/users', controllers.users);
 
 // HOME ROUTE
 app.get('/', (req, res) => {
-    res.send('HOME PAGE');
+    res.render('home.ejs');
 })
 
 // 404 WILDCARD ROUTE
