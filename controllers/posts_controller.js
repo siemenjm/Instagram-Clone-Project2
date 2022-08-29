@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
     try {
         const allPosts = await db.Post.find();
         const context = {
-            users: allPosts
+            posts: allPosts
         };
 
         res.send(allPosts);
