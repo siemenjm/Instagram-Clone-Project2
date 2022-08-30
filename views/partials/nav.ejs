@@ -1,8 +1,15 @@
 <nav class="navbar">
     <div>
         <i class="fa fa-instagram"></i>
-        <a href="/"> Home   |</a>
-        <a href="/posts"> All Posts     |</a>
-        <a href="/posts/new"> Add New Post </a>
+        <!-- username in navbar -->
+        <% if (user) { %>
+            <p><%= user.username %></p>
+        <% } %>
+        <!-- dynamically adjusted routes -->
+        <% if (routes) { %>
+            <% routes.forEach((route) => { %>
+                <a href="<%= route.href %>"><%= route.title %>    |</a>
+            <% }) %>
+        <% } %>
     </div>
 </nav>
