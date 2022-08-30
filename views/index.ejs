@@ -12,11 +12,15 @@
         </section>
 
         <main class="container">
-            <div>
-               <!-- 
-                This isn't working on my side but pushing this change to try later at home
-                <h1> <%= posts[1]%> </h1> -->
-            </div>
+            <% posts.forEach((post) => { %>
+                <div class="post-container">
+                    <p class="post-username">Posted by: <%= post.user._id %></p>
+                    <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
+                    <h2 class="post-title">Title: <%= post.title %></h2>
+                    <p class="post-likes">Likes: <%= post.likes %></p>
+                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a>
+                </div>
+            <% }) %>
         </main>
     
 	</body>
