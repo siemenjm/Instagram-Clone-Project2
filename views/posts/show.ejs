@@ -19,9 +19,19 @@
         <div>
             <h4>User: <%= post.user.username %></h4>
             <h6>Post created: <%= post.createdAt %></h6>
-            <img src="<%= post.image %>" style="max-width: 500px;" />
+            <img src="<%= post.image %>" style="max-width: 500px" width="100%" />
             <p>Post title: <%= post.title %> </p>
-            <p>Post likes: <%= post.likes %> </p>
+            <p>Post likes: <%= post.likes %> 
+                <form method="POST" action="/posts/<%= post._id %>">
+                    <div>
+                    <input name="like" 
+                        type="button"
+                        value = "I Love this Post!"
+                        id = "likeCounter"
+                        />
+                    </div>
+                    <!-- Like button is displayed but not connected yet-->
+            </p>
             <ul>
                 <% for (let i = 0; i < comments.length; i++) { %>
                     <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
