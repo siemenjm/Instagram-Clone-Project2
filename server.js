@@ -7,12 +7,12 @@ const navLinks = require('./navLinks');
 require('dotenv').config();
 
 // CONTROLLER IMPORTS
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
 // APP CONFIGURATION
 const app = express();
 const PORT = 4000;
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 // MIDDLEWARE
 app.use(
@@ -37,7 +37,7 @@ const authRequired = (req, res, next) => {
         return next();
     }
 
-    return res.redirect('./login');
+    return res.redirect('/login');
 };
 
 app.use(express.static('public'));
@@ -45,7 +45,7 @@ app.use(methodOverride('_method'));
 app.use(navLinks);
 
 // ROUTERS
-app.use('/comments', authRequired, controllers.comments);
+app.use('/posts/:postId/comments', authRequired, controllers.comments);
 app.use('/posts', authRequired, controllers.posts);
 app.use('/users', authRequired, controllers.users);
 app.use('/', controllers.auth);
