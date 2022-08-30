@@ -22,14 +22,14 @@
             <img src="<%= post.image %>" style="max-width: 500px" width="100%" />
             <p>Post title: <%= post.title %> </p>
             <p>Post likes: <%= post.likes %> 
-                <form method="POST" action="/posts/<%= post._id %>">
-                    <div>
-                    <input name="like" 
-                        type="button"
-                        value = "I Love this Post!"
-                        id = "likeCounter"
-                        />
-                    </div>
+                <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
+                    <input 
+                    type="hidden" 
+                    name="likes" 
+                    value="<%= post.likes + 1 %>" />
+                    <button type="submit">I love this post!</button>
+                </form>
+
                     <!-- Like button is displayed but not connected yet-->
             </p>
             <ul>

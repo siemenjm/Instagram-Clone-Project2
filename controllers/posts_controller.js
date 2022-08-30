@@ -82,10 +82,18 @@ router.post('/:postId', async (req, res) => {
     }
 })
 
+
 // PUT ROUTE
 // update post
-router.put("/:postId", (req, res) => {
-    res.send('POST UPDATED');
+router.put("/:postId", async (req, res) => { 
+    try {
+        const post = await db.Post.findByIdAndUpdate(req.params.postId, req.body);
+        console.log(post);
+        res.redirect(`/posts/${req.params.postId}`);
+    }
+    catch (err) {
+        console.log(err);
+    }
 });
 
 // DELETE ROUTE
