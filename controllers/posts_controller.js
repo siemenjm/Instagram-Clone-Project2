@@ -13,7 +13,7 @@ router.get("/new", (req, res) => {
     const context = {
         currentUser: req.session.currentUser
     };
-    res.render('new.ejs', context);
+    res.render('posts/new.ejs', context);
 });
 
 // edit post page
@@ -32,7 +32,7 @@ router.get("/:postId", async (req, res) => {
             currentUser: req.session.currentUser
         };
 
-        res.render('show.ejs', context);
+        res.render('posts/show.ejs', context);
     } catch(err) {
         console.log(err);
     }
@@ -46,10 +46,10 @@ router.get("/", async (req, res) => {
             posts: allPosts
         };
 
-        res.render('index.ejs', context);
+        res.render('posts/index.ejs', context);
     } catch(err) {
         console.log(err);
-        res.redirect('404');
+        res.redirect('/404');
     }
 });
 
