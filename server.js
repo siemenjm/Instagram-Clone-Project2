@@ -37,7 +37,7 @@ const authRequired = (req, res, next) => {
         return next();
     }
 
-    return res.redirect('./login');
+    return res.redirect('/login');
 };
 
 app.use(express.static('public'));
