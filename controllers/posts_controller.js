@@ -24,22 +24,11 @@ router.get("/:postId/edit", (req, res) => {
 // post show page
 router.get("/:postId", async (req, res) => {
     try {
-        const post = await db.Post.findById(req.params.postId);
-        const postComments = await db.Comment.find({post: post._id});
-        
-        let commentUsers = [];
-        for (let i = 0; i < postComments.length; i++) {
-            let commentUser = await db.User.findById(postComments[i].user);
-            commentUsers.push(commentUser);
-        }
-
-        const postUser = await db.User.findById(post.user._id);
-        
+        const post = await db.Post.findById(req.params.postId).populate('user').exec();
+        const allComments = await db.Comment.find({post: post._id}).populate('user').exec();
         const context = {
             post: post,
-            comments: postComments,
-            commentUsers: commentUsers,
-            user: postUser
+            comments: allComments
         };
 
         res.render('show.ejs', context);

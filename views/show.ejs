@@ -9,7 +9,7 @@
 
     <section>
         <div>
-            <h2 class="title">Instagram post by: <%=user.username%>
+            <h2 class="title">Instagram post by: <%=post.user.username%>
             </h2>
 
         </div>
@@ -17,17 +17,17 @@
 
     <main class="container">
         <div>
-            <h4>User: <%= user.username %> </h4>
-            <h6>Post created: <%= post.createdAt %> </p>
-            <img src="<%=post.image%>" style="max-width: 500px;" />
+            <h4>User: <%= post.user.username %></h4>
+            <h6>Post created: <%= post.createdAt %></h6>
+            <img src="<%= post.image %>" style="max-width: 500px;" />
             <p>Post title: <%= post.title %> </p>
             <p>Post likes: <%= post.likes %> </p>
-            <h5>Comments: </h5>
-        <ul>
-            <% for (let i = 0; i < comments.length; i++) { %>
-                <li>Written by: <%= commentUsers[i].username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
-            <% } %>
-        </ul>
+            <ul>
+                <% for (let i = 0; i < comments.length; i++) { %>
+                    <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
+                <% } %>
+            </ul>
+        </div>
 
 <!-- This is a stretch feature according to eric 
     since user authorization issues(?)
