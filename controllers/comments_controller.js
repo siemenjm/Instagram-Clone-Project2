@@ -84,7 +84,14 @@ router.put("/:commentId", async (req, res) => {
 // DELETE ROUTE
 // destroy comment
 router.delete("/:commentId", async (req, res) => {
-    res.send('COMMENT DELETED');
+    try {
+        const deletedComment = await db.Comment.findByIdAndDelete(req.params.commentId).populate('post').exec();
+        console.log(deletedComment);
+
+        return res.redirect(`/posts/${deletedComment.post._id}`);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // EXPORT ROUTER
