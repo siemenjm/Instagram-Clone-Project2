@@ -3,15 +3,18 @@ const db = require('./index');
 const seedUsers = [
     {
         username: 'testUser1',
-        email: 'user1@test.com'
+        email: 'user1@test.com',
+        password: 'testUser1'
     },
     {
         username: 'testUser2',
-        email: 'user2@test.com'
+        email: 'user2@test.com',
+        password: 'testUser2'
     },
     {
         username: 'testUser3',
-        email: 'user3@test.com'
+        email: 'user3@test.com',
+        password: 'testUser3'
     }
 ];
 

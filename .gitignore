@@ -1,2 +1,5 @@
 node_modules
 .env
+models/seed_comments.js
+models/seed_posts.js
+models/seed_users.js
