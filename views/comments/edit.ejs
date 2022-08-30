@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<%- include( '../partials/head.ejs' )  %>
+
+<body>
+    <%- include( '../partials/nav.ejs' )  %>
+
+    <section>
+        <div>
+            <h2 class="title">Comment by: <%=comment.user.username%>
+            </h2>
+
+        </div>
+    </section>
+
+    <main class="container">
+        <div>
+            <h4>User: <%= comment.user.username %></h4>
+            <p>Post title: <%= comment.post.title %> </p>
+            <h4>Comment created: <%= comment.createdAt %></h4>
+            <form action="" method="POST">
+                <label for="content">Comment Content</label>
+                <input type="text" name="content" id="content" value="<%= comment.content %>">
+
+                <button type="submit">Edit Comment</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -14,8 +14,17 @@ router.get("/new", (req, res) => {
 });
 
 // edit comment page
-router.get("/:commentId/edit", (req, res) => {
-    res.send('EDIT COMMENT PAGE');
+router.get("/:commentId/edit", async (req, res) => {
+    try {
+        const foundComment = await db.Comment.findById(req.params.commentId).populate('user').populate('post').exec();
+        context = {
+            comment: foundComment
+        }
+        
+        res.render('comments/edit.ejs', context);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // comment show page
