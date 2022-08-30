@@ -20,7 +20,7 @@
             <h4>User: <%= comment.user.username %></h4>
             <p>Post title: <%= comment.post.title %> </p>
             <h4>Comment created: <%= comment.createdAt %></h4>
-            <form action="" method="POST">
+            <form action="/posts/<%= comment.post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                 <label for="content">Comment Content</label>
                 <input type="text" name="content" id="content" value="<%= comment.content %>">
 

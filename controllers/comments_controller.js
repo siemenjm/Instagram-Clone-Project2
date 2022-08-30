@@ -63,8 +63,16 @@ router.post("/", (req, res) => {
 
 // PUT ROUTE
 // update comment
-router.put("/:commentId", (req, res) => {
-    res.send('COMMENT UPDATED');
+router.put("/:commentId", async (req, res) => {
+    try {
+        req.body.content = `${req.body.content} (comment edited)`;
+        const updatedComment = await db.Comment.findByIdAndUpdate(req.params.commentId, req.body).populate('post').exec();
+        const commentPost = updatedComment.post._id
+
+        res.redirect(`/posts/${commentPost}`);
+    } catch(err) {
+        console.log(err);
+    }
 });
 
 // DELETE ROUTE
