@@ -16,7 +16,13 @@ router.get("/new", (req, res) => {
 // edit comment page
 router.get("/:commentId/edit", async (req, res) => {
     try {
+        
         const foundComment = await db.Comment.findById(req.params.commentId).populate('user').populate('post').exec();
+
+        if (req.session.currentUser.id != foundComment.user._id) {
+            return res.redirect(`/posts/${foundComment.post._id}`);
+        }
+
         context = {
             comment: foundComment
         }
