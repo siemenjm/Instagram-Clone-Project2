@@ -42,13 +42,27 @@
 
         <section>
             <h2>Add a new comment</h2>
-            <form method="POST" action="/posts">
+            <form method="POST" action="/posts/<%= post._id %>">
     
                 <div>
                     Comment: 
-                    <input name="comment" type="string" placeholder="Enter your comment"/>
+                    <input name="content" 
+                        type="string" 
+                        placeholder="Enter your comment"/>
                 </div>
-    
+                <div>
+                    <input 
+                        type="hidden" 
+                        name="user" 
+                        value="<%= currentUser.id %>" />
+                </div>
+                <div>
+                    <input 
+                        type="hidden" 
+                        name="post" 
+                        value="<%= post._id %>" />
+                </div>
+
                 <button type="submit">Add your comment</button>
             </form>
         </section>

@@ -28,7 +28,8 @@ router.get("/:postId", async (req, res) => {
         const allComments = await db.Comment.find({post: post._id}).populate('user').exec();
         const context = {
             post: post,
-            comments: allComments
+            comments: allComments,
+            currentUser: req.session.currentUser
         };
 
         res.render('show.ejs', context);
@@ -42,7 +43,7 @@ router.get("/", async (req, res) => {
     try {
         const allPosts = await db.Post.find().populate('user').exec();
         const context = {
-            posts: allPosts,
+            posts: allPosts
         };
 
         res.render('index.ejs', context);
@@ -66,6 +67,20 @@ router.post("/", async (req, res) => {
         res.redirect('/404')
     }
 });
+
+// POST ROUTE
+// submitting new comment
+router.post('/:postId', async (req, res) => {
+    const createdComment = req.body;
+    try{
+        const newComment = await db.Comment.create(createdComment);
+        console.log(newComment);
+        res.redirect(`/posts/${req.params.postId}`);
+    }
+    catch (err){
+        console.log(err)
+    }
+})
 
 // PUT ROUTE
 // update post
