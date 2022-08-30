@@ -10,7 +10,7 @@ router.use(express.urlencoded({ extended: false }));
 // GET ROUTES
 // new post page
 router.get("/new", (req, res) => {
-  res.send('NEW POST PAGE');
+  res.render('new.ejs');
 });
 
 // edit post page
@@ -61,8 +61,17 @@ router.get("/", async (req, res) => {
 
 // POST ROUTE
 // submitting new post
-router.post("/", (req, res) => {
-    res.send('NEW POST SUBMITTED');
+router.post("/", async (req, res) => {
+    const createdPost = req.body;
+    try{
+        const newPost = await db.Post.create(createdPost);
+        console.log(newPost);
+        res.redirect('/posts');
+    }
+    catch (err) {
+        console.log(err)
+        res.redirect('/404')
+    }
 });
 
 // PUT ROUTE
