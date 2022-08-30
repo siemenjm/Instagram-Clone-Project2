@@ -10,7 +10,10 @@ router.use(express.urlencoded({ extended: false }));
 // GET ROUTES
 // new post page
 router.get("/new", (req, res) => {
-  res.render('new.ejs');
+    const context = {
+        currentUser: req.session.currentUser
+    };
+    res.render('new.ejs', context);
 });
 
 // edit post page
