@@ -26,12 +26,14 @@
                 <% for (let i = 0; i < comments.length; i++) { %>
                     <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
                     
-                    <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                    <a href="">
-                        <i class="fa fa-trash"></i>
-                    </a>
+                    <% if (comments[i].user._id == currentUser.id) { %>
+                        <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    <% } %>
                 <% } %>
             </ul>
         </div>
