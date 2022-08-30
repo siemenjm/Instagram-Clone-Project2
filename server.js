@@ -26,18 +26,28 @@ app.use(
         }
     })
 );
-app.use(express.static('public'));
-app.use(methodOverride('_method'));
-app.use(navLinks);
+
 app.use((req, res, next) => {
     res.locals.user = req.session.currentUser;
     next();
 });
 
+const authRequired = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next();
+    }
+
+    return res.redirect('./login');
+};
+
+app.use(express.static('public'));
+app.use(methodOverride('_method'));
+app.use(navLinks);
+
 // ROUTERS
-app.use('/comments', controllers.comments);
-app.use('/posts', controllers.posts);
-app.use('/users', controllers.users);
+app.use('/comments', authRequired, controllers.comments);
+app.use('/posts', authRequired, controllers.posts);
+app.use('/users', authRequired, controllers.users);
 app.use('/', controllers.auth);
 
 // HOME ROUTE
