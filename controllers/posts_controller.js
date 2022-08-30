@@ -48,14 +48,15 @@ router.get("/:postId", async (req, res) => {
 // post index page
 router.get("/", async (req, res) => {
     try {
-        const allPosts = await db.Post.find();
+        const allPosts = await db.Post.find().populate('user').exec();
         const context = {
-            posts: allPosts
+            posts: allPosts,
         };
+
         res.render('index.ejs', context);
     } catch(err) {
         console.log(err);
-        res.redirect('/404')
+        res.redirect('404');
     }
 });
 
