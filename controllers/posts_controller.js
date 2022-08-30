@@ -48,6 +48,7 @@ router.get("/:postId", async (req, res) => {
 // post index page
 router.get("/", async (req, res) => {
     try {
+        // test comment
         const allPosts = await db.Post.find();
         const context = {
             posts: allPosts
