@@ -14,7 +14,7 @@
         <main class="container">
             <% posts.forEach((post) => { %>
                 <div class="post-container">
-                    <p class="post-username">Posted by: <%= post.user.username %></p>
+                    <p class="post-username">Posted by: <a href="/users/<%= post.user._id%>"><%= post.user.username %></a> </p>
                     <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
                     <h2 class="post-title">Title: <%= post.title %></h2>
                     <p class="post-likes">Likes: <%= post.likes %></p>
