@@ -26,7 +26,7 @@ router.get("/:userId", async (req, res) => {
             user: user
         };
 
-        res.send(user);
+        res.render('users/show', context);
     } catch(err) {
         console.log(err);
     }

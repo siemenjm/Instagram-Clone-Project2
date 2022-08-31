@@ -3,7 +3,8 @@
         <i class="fa fa-instagram"></i>
         <!-- username in navbar -->
         <% if (user) { %>
-            <p><%= user.username %></p>
+            <a href="/users/<%=user.id%>"> <%= user.username %> </a>
+            <br>
         <% } %>
         <!-- dynamically adjusted routes -->
         <% if (routes) { %>
