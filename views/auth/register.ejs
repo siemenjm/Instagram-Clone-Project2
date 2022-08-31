@@ -5,6 +5,9 @@
     <body>
         <%- include('../partials/nav')  %>
         <h1>Register New User</h1>
+        <% if (message !== undefined) { %>
+            <p class="message"><%= message %></p>
+        <% } %>
         <section>
             <form action="/register" method="POST">
                 <label for="username">Username</label>
