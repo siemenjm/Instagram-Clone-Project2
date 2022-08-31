@@ -1,12 +1,14 @@
-<nav class="navbar">
-    <div>
+<nav>
+    <div class = "login_screen">
         <i class="fa fa-instagram"></i>
         <!-- username in navbar -->
         <% if (sessionUser) { %>
             <a href="/users/<%=sessionUser.id%>"> <%= sessionUser.username %> </a>
             <br>
         <% } %>
+    </div>
         <!-- dynamically adjusted routes -->
+    <div class="navbar">
         <% if (routes) { %>
             <% routes.forEach((route) => { %>
                 <a href="<%= route.href %>"><%= route.title %>    |</a>
