@@ -15,6 +15,7 @@ const postSchema = new mongoose.Schema(
             default: 0,
             min: [0, 'amount of likes cannot be negative']
         },
+        likedBy: [String],
         user: {
             type: mongoose.Types.ObjectId,
             ref: 'User'

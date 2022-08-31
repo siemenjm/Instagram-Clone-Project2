@@ -87,9 +87,23 @@ router.post('/:postId', async (req, res) => {
 // update post
 router.put("/:postId", async (req, res) => { 
     try {
-        const post = await db.Post.findByIdAndUpdate(req.params.postId, req.body);
-        console.log(post);
-        res.redirect(`/posts/${req.params.postId}`);
+        console.log(req.body)
+        const post = await db.Post.findById(req.params.postId);
+        
+        if (post.likedBy.includes(req.body.currentUserId)) {
+            console.log('user already liked post');
+            return res.redirect(`/posts/${req.params.postId}`);
+        } else {
+            const updatedPost = await db.Post.findByIdAndUpdate(req.params.postId, {
+                likes: req.body.likes,
+                $push: {
+                    likedBy: req.body.currentUserId
+                }
+            });
+            console.log(updatedPost);
+
+            res.redirect(`/posts/${req.params.postId}`);
+        }
     }
     catch (err) {
         console.log(err);
