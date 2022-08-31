@@ -80,9 +80,12 @@
                 <button type="submit">Add your comment</button>
             </form>
         </section>
-        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete Post</button>
-        </form>
+
+        <% if (post.user._id == currentUser.id) { %>
+            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Post</button>
+            </form>
+        <% }%>
     </main>
 
 </body>
