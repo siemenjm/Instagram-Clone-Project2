@@ -30,4 +30,6 @@ async function reloadComments() {
     }
 }
 
-reloadComments();
+module.exports = {
+    reloadComments: reloadComments
+}

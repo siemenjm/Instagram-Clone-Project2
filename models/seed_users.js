@@ -21,13 +21,15 @@ const seedUsers = [
 async function reloadUsers() {
     try {
         const deletedUsers = await db.User.deleteMany({});
-        console.log(deletedUsers);
+        console.log('Deleted Users: ', deletedUsers);
 
         const reloadedUsers = await db.User.insertMany(seedUsers);
-        console.log(reloadedUsers);
+        console.log('Reloaded Users: ', reloadedUsers);
     } catch(err) {
         console.log(err);
     }
 }
 
-reloadUsers();
+module.exports = {
+    reloadUsers: reloadUsers
+}
