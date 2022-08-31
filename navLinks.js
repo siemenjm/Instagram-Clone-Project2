@@ -2,6 +2,7 @@ const routes = [
     { href: "/", title: "Home" },
     { href: "/posts", title: "All Posts" },
     { href: "/posts/new", title: "Add New Post" },
+    { href: "/logout", title: "Logout" },
 ];
 
 const authRoutes = [

@@ -5,6 +5,9 @@
     <body>
         <%- include('../partials/nav')  %>
         <h1>Login</h1>
+        <% if (message !== undefined) { %>
+            <p class="message"><%= message %></p>
+        <% } %>
         <section>
             <form action="/login" method="POST">
                 <label for="email">Email</label>
