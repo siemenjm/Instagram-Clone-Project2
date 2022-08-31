@@ -22,11 +22,13 @@ router.get("/:userId/edit", (req, res) => {
 router.get("/:userId", async (req, res) => {
     try {
         const user = await db.User.findById(req.params.userId);
+        const allPost = await db.Post.find({user: req.params.userId});
         const context = {
-            user: user
+            user: user,
+            posts: allPost,
         };
 
-        res.send(user);
+        res.render('users/show', context);
     } catch(err) {
         console.log(err);
     }
