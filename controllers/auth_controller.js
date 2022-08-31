@@ -16,7 +16,12 @@ router.get('/register', (req, res) => {
 
 // login page
 router.get('/login', (req, res) => {
-    res.render('auth/login');
+    context = {
+        message: req.query.message
+    };
+
+    console.log(context);
+    res.render('auth/login', context);
 });
 
 // logout
@@ -24,7 +29,8 @@ router.get('/logout', async (req, res) => {
     try {
         await req.session.destroy();
         console.log('session destroyed');
-        return res.redirect('/login');
+        const message = 'You have been logged out.';
+        return res.redirect(`/login?message=${message}`);
     } catch(err) {
         console.log(err);
     }
