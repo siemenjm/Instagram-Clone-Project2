@@ -54,17 +54,6 @@
             </ul>
         </div>
 
-<!-- This is a stretch feature according to eric 
-    since user authorization issues(?)
-
-            <div class = "deleteButton">
-                <p class="control">
-                    <form action="/posts/<= id %>?_method=DELETE" method="POST">
-                            <input class="button is-danger" type="submit" value="Delete Post"/>                    
-                    </form>
-                </p>
--->
-
         <section>
             <h2>Add a new comment</h2>
             <form method="POST" action="/posts/<%= post._id %>">
@@ -91,6 +80,12 @@
                 <button type="submit">Add your comment</button>
             </form>
         </section>
+
+        <% if (post.user._id == currentUser.id) { %>
+            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Post</button>
+            </form>
+        <% }%>
     </main>
 
 </body>
