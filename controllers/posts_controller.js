@@ -41,7 +41,7 @@ router.get("/:postId", async (req, res) => {
 // post index page
 router.get("/", async (req, res) => {
     try {
-        const allPosts = await db.Post.find().populate('user').exec();
+        const allPosts = await db.Post.find().sort({createdAt: -1}).populate('user').exec();
         const context = {
             posts: allPosts
         };
