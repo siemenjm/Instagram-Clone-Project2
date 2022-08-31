@@ -27,6 +27,10 @@
                     type="hidden" 
                     name="likes" 
                     value="<%= post.likes + 1 %>" />
+                    <input 
+                    type="hidden" 
+                    name="currentUserId" 
+                    value="<%= currentUser.id %>" />
                     <button type="submit">I love this post!</button>
                 </form>
 
