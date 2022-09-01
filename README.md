@@ -39,7 +39,9 @@ Jared - 8/28
 
 ## Wireframe
 Index.ejs
-<img width="720" alt="Index Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/index_wireframe.png">
+
+<img width="400" alt="Index Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/index_wireframe.png">
 
 Show.ejs
-<img width="720" alt="Show Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/show_wireframe.png">
+
+<img width="400" alt="Show Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/show_wireframe.png">
