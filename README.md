@@ -13,3 +13,31 @@ Jared - 8/28
 - set up routes for comments, posts, users
     - tested and confirmed to work with Postman
     - may not need to use all routes, but we have them and they're working
+
+## Setup
+
+
+## MVP Goals (CRUD)
+-Users can see all posts
+-Users can see individual post
+-Users can create posts
+-Users can comment on posts
+
+## Accomplished Stretch Goals
+-Users can delete their own posts
+-Users can edit/delete comments (only their own)
+-Users can like posts (only once each)
+-Limit users to home, register, and login pages 
+    unless they are logged in
+-Allow users to view a single user’s posts 
+    (user show page?)
+-Sort posts by date (newest post on top)
+
+## ERG Model
+
+
+## Wireframe
+Index.ejs
+
+Show.ejs
+
