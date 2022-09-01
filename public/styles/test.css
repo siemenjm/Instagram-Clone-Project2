@@ -68,6 +68,7 @@ body {
 }
 
 .post-content button {
+    cursor: pointer;
     border: none;
     background-color: white;
 }
