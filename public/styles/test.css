@@ -70,6 +70,27 @@ body {
     padding: 10px;
 }
 
+.home-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .home-image {
+    width: 300px;
+  }
+  
+  .introduction {
+    margin-left: 100px;
+    font-size: 22px;
+    text-align: center;
+    padding: 20px;
+    border:rgb(38, 38, 38) solid 5px;
+    border-radius: 10px;
+  }
+  
+
 .container {
     width: 1140px;
     align-items: center;
@@ -202,3 +223,7 @@ body {
 .comment-content {
     font-weight: normal;
 }
+
+.groupseven {
+    text-align: center;
+  }
