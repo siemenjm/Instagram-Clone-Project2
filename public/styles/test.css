@@ -6,6 +6,7 @@
 
     --border-radius: 10px;
     --post-width: 550px;
+    --profile-post-width: 250px;
     
     font-size: 16px;
 }
@@ -27,12 +28,17 @@ body, .container, .post-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 1140px;
+}
+
+.profile-container > div {
+    margin: 25px 10px;
 }
 
 .profile-container img {
     border-radius: 10px 10px 0 0;
+    max-height: var(--profile-post-width);
 }
 
 .profile-container .post-title {
@@ -79,7 +85,7 @@ body {
 }
 
 .profile-container .post-container {
-    width: 250px;
+    width: var(--profile-post-width);
 }
 
 .post-header {
