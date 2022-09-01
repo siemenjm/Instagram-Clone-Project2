@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yrsa&display=swap" rel="stylesheet">
     <!-- head -->
 	<%- include( '../partials/head.ejs', { page: 'Posts' } ) %> 
     <body>  
@@ -7,18 +15,18 @@
 
         <section>
             <div>
-                <h2 class="title">All Instagram Posts</h2>
+                <h2 class="title">Instagram Home</h2>
             </div>
         </section>
 
         <main class="container">
             <% posts.forEach((post) => { %>
                 <div class="post-container">
-                    <p class="post-username">Posted by: <%= post.user.username %></p>
+                    <p class="post-username"><%= post.user.username %></p>
                     <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
-                    <h2 class="post-title">Title: <%= post.title %></h2>
-                    <p class="post-likes">Likes: <%= post.likes %></p>
-                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a>
+                    <h2 class="post-title"><%= post.title %></h2>
+                    <p class="post-likes"><%= post.likes %> Like(s)</p>
+                    <a href="/posts/<%= post._id %>" class="post-comments-link">View all comments</a>
                 </div>
             <% }) %>
         </main>

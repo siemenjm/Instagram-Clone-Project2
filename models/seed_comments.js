@@ -3,18 +3,18 @@ const db = require('./index');
 const seedComments = [
     {
         content: 'test content for comment 1',
-        user: "630e0fc81206dd62cd1e45cd", // need to update if users have been reloaded
-        post: "630e108786530defc7bfce1c" // need to update if posts have been reloaded
+        user: "630f65b9d0cc20f68e9376cc", // need to update if users have been reloaded
+        post: "630f660bb49a6f9e33a9973f" // need to update if posts have been reloaded
     },
     {
         content: 'test content for comment 2',
-        user: "630e0fc81206dd62cd1e45ce", // need to update if users have been reloaded
-        post: "630e108786530defc7bfce1d" // need to update if posts have been reloaded
+        user: "630f65b9d0cc20f68e9376cd", // need to update if users have been reloaded
+        post: "630f660bb49a6f9e33a99740" // need to update if posts have been reloaded
     },
     {
         content: 'test content for comment 3',
-        user: "630e0fc81206dd62cd1e45cf", // need to update if users have been reloaded
-        post: "630e108786530defc7bfce1e" // need to update if posts have been reloaded
+        user: "630f65b9d0cc20f68e9376ce", // need to update if users have been reloaded
+        post: "630f660bb49a6f9e33a99741" // need to update if posts have been reloaded
     }
 ];
 
