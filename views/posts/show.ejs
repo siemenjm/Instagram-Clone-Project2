@@ -66,20 +66,34 @@
     
                     <button type="submit">Post</button>
                 </form>
+                <h2>Comments</h2>
                 <ul>
                     <% for (let i = 0; i < comments.length; i++) { %>
-                        <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
+                        <li class="comment-li">
+                            <div>
+                                <div>
+                                    <p class="comment-username">
+                                        <a href=""><%= comments[i].user.username %></a>
+                                    </p>
+                                    <p class="comment-date"><%= comments[i].createdAt %></p>
+                                </div>
+                                <% if (comments[i].user._id == currentUser.id) { %>
+                                    <div class="comment-buttons">
+                                        <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <form action="/posts/<%= post._id %>/comments/<%= comments[i]._id %>?_method=DELETE" method="POST">
+                                            <button type="submit">
+                                                <i class="fa fa-trash"></i>
+                                            </button> 
+                                        </form>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <p class="comment-content"><%= comments[i].content %></p>
+                        </li>
                         
-                        <% if (comments[i].user._id == currentUser.id) { %>
-                            <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <form action="/posts/<%= post._id %>/comments/<%= comments[i]._id %>?_method=DELETE" method="POST">
-                                <button type="submit">
-                                    <i class="fa fa-trash"></i>
-                                </button> 
-                            </form>
-                        <% } %>
+                        
                     <% } %>
                 </ul>
             </div>

@@ -50,7 +50,7 @@ body {
     padding: 16px 10px;
 }
 
-.post-username > a {
+.post-username > a, .comment-username > a {
     text-decoration: none;
 }
 
@@ -66,6 +66,11 @@ body {
 
 .post-content > * {
     margin-bottom: 10px;
+}
+
+.post-content h2 {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .post-content button {
@@ -93,7 +98,7 @@ body {
     font-weight: normal;
 }
 
-.post-date {
+.post-date, .comment-date {
     color: var(--secondary-gray);
     font-weight: normal;
 }
@@ -124,4 +129,21 @@ body {
 .add-comment-form button:hover {
     color: var(--body-background-color);
     background-color: var(--primary-black);
+}
+
+.comment-li {
+    list-style: none;
+}
+
+.comment-li div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-li div p {
+    margin-right: 10px;
+}
+
+.comment-content {
+    font-weight: normal;
 }
