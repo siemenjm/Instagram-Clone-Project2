@@ -14,12 +14,39 @@
         <main class="container">
             <% posts.forEach((post) => { %>
                 <div class="post-container">
-                    <p class="post-username">Posted by: <a href="/users/<%= post.user._id%>"><%= post.user.username %></a> </p>
+                    <div class="post-header">
+                        <p class="post-username"><a href="/users/<%= post.user._id%>"><%= post.user.username %></a></p>
+                    </div>
                     <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
-                    <h2 class="post-title">Title: <%= post.title %></h2>
-                    <p class="post-likes">Likes: <%= post.likes %></p>
-                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a>
-                    <br>
+                    <div class="post-content">
+                        <div class="post-icons">
+                            <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
+                                <input 
+                                type="hidden" 
+                                name="likes" 
+                                value="<%= post.likes + 1 %>" />
+                                <input 
+                                type="hidden" 
+                                name="currentUserId" 
+                                value="<%= currentUser.id %>" />
+                                <button type="submit">
+                                    <% if (!post.likedBy.includes(currentUser.id)) { %>
+                                        <i class="far fa-heart fa-2x"></i>
+                                    <% } else { %>
+                                        <i class="fas fa-heart fa-2x" style="color: red"></i>
+                                    <% } %>
+                                </button>
+                            </form>
+                            <a href="/posts/<%= post._id %>"><i class="far fa-comment fa-2x"></i></a>
+                        </div>
+                        <p class="post-likes"><%= post.likes %> likes</p>
+                        <div>
+                            <p class="post-username"><a href="/users/<%= post.user._id%>"><%= post.user.username %></a>:</p>
+                            <h2 class="post-title"><%= post.title %></h2>
+                        </div>
+                        <p class="post-date"><%= post.createdAt %></p>
+                        <a href="/posts/<%= post._id %>" class="post-comments-link">View all comments</a>
+                    </div>
                 </div>
             <% }) %>
         </main>
