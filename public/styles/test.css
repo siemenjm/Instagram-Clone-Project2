@@ -67,6 +67,11 @@ body {
     margin-bottom: 10px;
 }
 
+.post-content button {
+    border: none;
+    background-color: white;
+}
+
 .post-content i {
     margin-right: 20px;
 }
@@ -77,6 +82,7 @@ body {
 
 .post-content > div {
     display: flex;
+    align-items: center;
 }
 
 .post-title {

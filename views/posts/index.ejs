@@ -20,7 +20,17 @@
                     <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
                     <div class="post-content">
                         <div class="post-icons">
-                            <i class="far fa-heart fa-2x"></i>
+                            <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
+                                <input 
+                                type="hidden" 
+                                name="likes" 
+                                value="<%= post.likes + 1 %>" />
+                                <input 
+                                type="hidden" 
+                                name="currentUserId" 
+                                value="<%= currentUser.id %>" />
+                                <button type="submit"><i class="far fa-heart fa-2x"></i></button>
+                            </form>
                             <i class="far fa-comment fa-2x"></i>
                         </div>
                         <p class="post-likes"><%= post.likes %> likes</p>
