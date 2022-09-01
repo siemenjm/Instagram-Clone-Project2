@@ -34,10 +34,12 @@ Jared - 8/28
 -Sort posts by date (newest post on top)
 
 ## ERG Model
+<img width="720" alt="ERG Model" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/ERG.png"
 
 
 ## Wireframe
 Index.ejs
+<img width="720" alt="Index Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/index_wireframe.png"
 
 Show.ejs
-
+<img width="720" alt="Show Wireframe" src="https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/show_wireframe.png"
