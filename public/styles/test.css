@@ -23,6 +23,23 @@ body, .container, .post-container {
     flex-direction: column;
 }
 
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1140px;
+}
+
+.profile-container img {
+    border-radius: 10px 10px 0 0;
+}
+
+.profile-container .post-title {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
 a:hover {
     color: var(--secondary-gray);
 }
@@ -48,17 +65,21 @@ body {
 }
 
 .container {
-    width: var(--post-width);
+    width: 1140px;
     align-items: center;
 }
 
 .post-container {
-    width: 100%;
+    width: var(--post-width);
     background-color: white;
     font-weight: bold;
     margin-bottom: 50px;
     border: 1px solid var(--primary-black);
     border-radius: var(--border-radius);
+}
+
+.profile-container .post-container {
+    width: 250px;
 }
 
 .post-header {
