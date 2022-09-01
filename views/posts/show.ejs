@@ -23,24 +23,35 @@
             <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
             <div class="post-content">
                 <div class="post-icons">
-                    <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
-                        <input 
-                        type="hidden" 
-                        name="likes" 
-                        value="<%= post.likes + 1 %>" />
-                        <input 
-                        type="hidden" 
-                        name="currentUserId" 
-                        value="<%= currentUser.id %>" />
-                        <button type="submit">
-                            <% if (!post.likedBy.includes(currentUser.id)) { %>
-                                <i class="far fa-heart fa-2x"></i>
-                            <% } else { %>
-                                <i class="fas fa-heart fa-2x" style="color: red"></i>
-                            <% } %>
-                        </button>
-                    </form>
-                    <a href="/posts/<%= post._id %>"><i class="far fa-comment fa-2x"></i></a>
+                    <div class="post-icons-left">
+                        <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
+                            <input 
+                            type="hidden" 
+                            name="likes" 
+                            value="<%= post.likes + 1 %>" />
+                            <input 
+                            type="hidden" 
+                            name="currentUserId" 
+                            value="<%= currentUser.id %>" />
+                            <button type="submit">
+                                <% if (!post.likedBy.includes(currentUser.id)) { %>
+                                    <i class="far fa-heart fa-2x"></i>
+                                <% } else { %>
+                                    <i class="fas fa-heart fa-2x" style="color: red"></i>
+                                <% } %>
+                            </button>
+                        </form>
+                        <a href="/posts/<%= post._id %>"><i class="far fa-comment fa-2x"></i></a>
+                    </div>
+                    <div class="post-icons-right">
+                        <% if (post.user._id == currentUser.id) { %>
+                            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                                <button type="submit">
+                                    <i class="fa fa-trash fa-2x"></i>
+                                </button>
+                            </form>
+                        <% }%>
+                    </div>
                 </div>
                 <p class="post-likes"><%= post.likes %> likes</p>
                 <div>
@@ -98,13 +109,6 @@
                 </ul>
             </div>
         </div>
-
-
-        <% if (post.user._id == currentUser.id) { %>
-            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete Post</button>
-            </form>
-        <% }%>
     </main>
 
 </body>
