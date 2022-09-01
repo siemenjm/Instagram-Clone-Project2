@@ -32,6 +32,21 @@ body {
     align-items: center;
 }
 
+.navbar{
+    display: relative;
+    color: rgb(188, 42, 141);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-size: 17px;
+    font-family: "Noto Sans", sans-serif
+}
+
+.login_screen {
+    text-align: center;
+    padding: 10px;
+}
+
 .container {
     width: var(--post-width);
     align-items: center;
