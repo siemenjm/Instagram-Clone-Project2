@@ -2,6 +2,7 @@
     --body-background-color: rgb(250, 250, 250);
     --primary-black: rgb(38, 38, 38);
     --secondary-gray: rgb(100, 100, 100);
+    --lighter-gray: rgb(200, 200, 200);
 
     --border-radius: 10px;
     --post-width: 550px;
@@ -95,4 +96,32 @@ body {
 .post-date {
     color: var(--secondary-gray);
     font-weight: normal;
+}
+
+.add-comment-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid var(--lighter-gray);
+}
+
+.add-comment-form #content {
+    flex-grow: 1;
+    font-size: 16px;
+    border: none;
+    padding: 0 5px;
+}
+
+.add-comment-form button {
+    background-color: var(--body-background-color);
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-left: 1px solid var(--lighter-gray);
+}
+
+.add-comment-form button:hover {
+    color: var(--body-background-color);
+    background-color: var(--primary-black);
 }

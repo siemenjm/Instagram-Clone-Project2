@@ -16,70 +16,75 @@
     </section>
 
     <main class="container">
-        <div>
-            <h4>User: <%= post.user.username %></h4>
-            <h6>Post created: <%= post.createdAt %></h6>
-            <img src="<%= post.image %>" style="max-width: 500px" width="100%" />
-            <p>Post title: <%= post.title %> </p>
-            <p>Post likes: <%= post.likes %> 
-                <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
-                    <input 
-                    type="hidden" 
-                    name="likes" 
-                    value="<%= post.likes + 1 %>" />
-                    <input 
-                    type="hidden" 
-                    name="currentUserId" 
-                    value="<%= currentUser.id %>" />
-                    <button type="submit">I love this post!</button>
+        <div class="post-container">
+            <div class="post-header">
+                <p class="post-username"><a href="/users/<%= post.user._id%>"><%= post.user.username %></a></p>
+            </div>
+            <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
+            <div class="post-content">
+                <div class="post-icons">
+                    <form method="POST" action="/posts/<%= post._id %>?_method=PUT">
+                        <input 
+                        type="hidden" 
+                        name="likes" 
+                        value="<%= post.likes + 1 %>" />
+                        <input 
+                        type="hidden" 
+                        name="currentUserId" 
+                        value="<%= currentUser.id %>" />
+                        <button type="submit">
+                            <% if (!post.likedBy.includes(currentUser.id)) { %>
+                                <i class="far fa-heart fa-2x"></i>
+                            <% } else { %>
+                                <i class="fas fa-heart fa-2x" style="color: red"></i>
+                            <% } %>
+                        </button>
+                    </form>
+                    <a href="/posts/<%= post._id %>"><i class="far fa-comment fa-2x"></i></a>
+                </div>
+                <p class="post-likes"><%= post.likes %> likes</p>
+                <div>
+                    <p class="post-username"><a href="/users/<%= post.user._id%>"><%= post.user.username %></a>:</p>
+                    <h2 class="post-title"><%= post.title %></h2>
+                </div>
+                <p class="post-date"><%= post.createdAt %></p>
+                <form method="POST" action="/posts/<%= post._id %>" class="
+                    add-comment-form">
+        
+                        <input name="content"
+                            id="content" 
+                            type="string" 
+                            placeholder="Add a new comment..."/>
+                        <input 
+                            type="hidden" 
+                            name="user" 
+                            value="<%= currentUser.id %>" />
+                        <input 
+                            type="hidden" 
+                            name="post" 
+                            value="<%= post._id %>" />
+    
+                    <button type="submit">Post</button>
                 </form>
-
-                    <!-- Like button is displayed but not connected yet-->
-            </p>
-            <ul>
-                <% for (let i = 0; i < comments.length; i++) { %>
-                    <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
-                    
-                    <% if (comments[i].user._id == currentUser.id) { %>
-                        <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <form action="/posts/<%= post._id %>/comments/<%= comments[i]._id %>?_method=DELETE" method="POST">
-                            <button type="submit">
-                                <i class="fa fa-trash"></i>
-                            </button> 
-                        </form>
+                <ul>
+                    <% for (let i = 0; i < comments.length; i++) { %>
+                        <li>Written by: <%= comments[i].user.username %>, Content: <%= comments[i].content %>, Comment created: <%= comments[i].createdAt %> </li>
+                        
+                        <% if (comments[i].user._id == currentUser.id) { %>
+                            <a href="/posts/<%= post._id %>/comments/<%= comments[i]._id %>/edit">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <form action="/posts/<%= post._id %>/comments/<%= comments[i]._id %>?_method=DELETE" method="POST">
+                                <button type="submit">
+                                    <i class="fa fa-trash"></i>
+                                </button> 
+                            </form>
+                        <% } %>
                     <% } %>
-                <% } %>
-            </ul>
+                </ul>
+            </div>
         </div>
 
-        <section>
-            <h2>Add a new comment</h2>
-            <form method="POST" action="/posts/<%= post._id %>">
-    
-                <div>
-                    Comment: 
-                    <input name="content" 
-                        type="string" 
-                        placeholder="Enter your comment"/>
-                </div>
-                <div>
-                    <input 
-                        type="hidden" 
-                        name="user" 
-                        value="<%= currentUser.id %>" />
-                </div>
-                <div>
-                    <input 
-                        type="hidden" 
-                        name="post" 
-                        value="<%= post._id %>" />
-                </div>
-
-                <button type="submit">Add your comment</button>
-            </form>
-        </section>
 
         <% if (post.user._id == currentUser.id) { %>
             <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
