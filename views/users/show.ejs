@@ -11,16 +11,18 @@
             </div>
         </section>
 
-    <main class="profile_container">
-        <div>
-            <% posts.forEach((post) => { %>
-                <div class="post-container">
-                    <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
-                    <h2 class="post-title">Title: <%= post.title %></h2>
-                    <p class="post-date"> Date posted: <%= post.createdAt %></p>
-                    <p class="post-likes">Likes: <%= post.likes %></p>
-                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a> </div>
-            <% }) %>
-        </div>
+    <main class="profile-container">
+        <% posts.forEach((post) => { %>
+            <div class="post-container">
+                <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
+                <div class="post-content">
+                    <p class="post-likes"><%= post.likes %> likes</p>
+                    <h2 class="post-title"><%= post.title %></h2>
+                    <p class="post-date"><%= post.createdAt %></p>
+                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a>
+                </div>
+            </div>
+        <% }) %>
+    </main>
     </body>
 
