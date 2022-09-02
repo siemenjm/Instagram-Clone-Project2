@@ -47,6 +47,13 @@ Our final project differed from our initial wireframes slightly, but in general 
 
 ![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/show_wireframe.png)
 
+## Keeping up with progress
+While we are working on the project, we managed our project by listing of all our MVP and highlighted ones that we accomplished together.
+Also used slack as a method of communication to ensure which part of project that each of us were working on, 
+so that we don't have merging issues.
+
+Link to our planning page: https://docs.google.com/document/d/1TPx4JDyx5KWytBVPBrMdZOoQYaK7iY8Ua6LAMg4eEIU/edit?usp=sharing
+
 ## Getting Started
 To use our Instagram clone, first click on the Register button on the home page, or the Login button if you already have an account. The Register page will take you through the account set-up process.
 
