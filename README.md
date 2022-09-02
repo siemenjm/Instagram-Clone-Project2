@@ -49,7 +49,7 @@ Our final project differed from our initial wireframes slightly, but in general 
 
 ![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/show_wireframe.png)
 
-## Keeping up with progress
+## Keeping Up With Progress
 While we are working on the project, we managed our project by listing of all our MVP and highlighted ones that we accomplished together.
 Also used slack as a method of communication to ensure which part of project that each of us were working on, 
 so that we don't have merging issues.
