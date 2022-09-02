@@ -39,13 +39,24 @@ The relationships between them are as follows (and shown in greater detail in th
 ## Wireframe
 Our final project differed from our initial wireframes slightly, but in general we followed the style that Instagram uses. The post index page lets you scroll through all the posts, while the post show page shows more details about the post. (Instagram uses a popup for the post show page).
 
+### Post Index Page
+
 ![Index Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/index_wireframe.png)
 
-Show.ejs
+### Post Show Page
 
 ![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/show_wireframe.png)
 
 ## Getting Started
+To use our Instagram clone, first click on the Register button on the home page, or the Login button if you already have an account. The Register page will take you through the account set-up process.
+
+![Home Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/home_page.png)
+
+Once logged in, you will see the post index page, listing all of the current posts sorted by newest at the top. You will also notice that since you are now logged in, your username appears at the top of the header, and the navigation links have changed. From this page, you can view the basic details of each post, including post author, post title, likes, and total comments attached to the post. You can also like the post from this page by clicking on the heart icon (it will change to red if you have already liked the post).
+
+![Post Index Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/post_index_page.png)
+
+From the post index page, you can click on the speech bubble or "View all XX comments" to navigate to that post's show page. This page does not look much different than the index page, but it does allow you to view the comments attached to the post. Also
 
 ## Technologies Used
 * EJS
@@ -66,7 +77,6 @@ For example, the code snippet below is for the logout get route. The user is red
 router.get('/logout', async (req, res) => {
     try {
         await req.session.destroy();
-        console.log('session destroyed');
         const message = 'You have been logged out.';
         return res.redirect(`/login?message=${message}`);
     } catch(err) {
