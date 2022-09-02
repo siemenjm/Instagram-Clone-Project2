@@ -34,7 +34,7 @@ body, .container, .post-container {
 }
 
 .profile-container > div {
-    margin: 25px 10px;
+    margin: 0 10px 50px 10px;
 }
 
 .profile-container img {
