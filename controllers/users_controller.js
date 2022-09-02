@@ -23,7 +23,7 @@ router.get("/:userId", async (req, res) => {
     try {
         const user = await db.User.findById(req.params.userId);
         const allPost = await db.Post.find({user: req.params.userId}).sort({ createdAt: -1});
-        const allComments = await db.Comment.find({user: req.params.userId}).populate('post').exec();
+        const allComments = await db.Comment.find().populate('post').exec();
         const context = {
             user: user,
             posts: allPost,
