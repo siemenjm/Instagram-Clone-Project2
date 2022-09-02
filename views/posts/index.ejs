@@ -47,6 +47,25 @@
                             <h2 class="post-title"><%= post.title %></h2>
                         </div>
                         <p class="post-date"><%= post.createdAt %></p>
+                        <h2>Last comment</h2>
+                        <% for (let i = 0; i < comments.length; i++) { %>
+                            <% if (comments[i].post._id.toString() === post._id.toString()) { %>
+                                <ul>
+                                    <li class="comment-li">
+                                        <div>
+                                            <div>
+                                                <p class="comment-username">
+                                                    <a href="/users/<%= comments[i].user._id %>"><%= comments[i].user.username %></a>
+                                                </p>
+                                                <p class="comment-date"><%= comments[i].createdAt %></p>
+                                            </div>
+                                        </div>
+                                        <p class="comment-content"><%= comments[i].content %></p>
+                                    </li>
+                                </ul>
+                                <% break %>
+                            <% } %>
+                        <% } %>
                         <% let commentCounter = 0 %>
                         <% comments.forEach((comment) => { %>
                             <% if (comment.post._id.toString() === post._id.toString()) { %>
