@@ -74,12 +74,10 @@ async function getPostIds() {
 async function reloadComments() {
     try {
         const deletedComments = await db.Comment.deleteMany({});
-        console.log('Deleted Comments: ', deletedComments);
 
         await getUserIds();
         await getPostIds();
         const reloadedComments = await db.Comment.insertMany(seedComments);
-        console.log('Reloaded Comments: ', reloadedComments);
     } catch(err) {
         console.log(err);
     }

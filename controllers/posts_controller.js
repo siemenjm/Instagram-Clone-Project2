@@ -38,7 +38,6 @@ router.get("/", async (req, res) => {
     try {
         const allPosts = await db.Post.find().sort({createdAt: -1}).populate('user').exec();
         const allComments = await db.Comment.find().populate('post').exec();
-        console.log(allComments)
         const context = {
             posts: allPosts,
             comments: allComments,
@@ -58,7 +57,7 @@ router.post("/", async (req, res) => {
     const createdPost = req.body;
     try{
         const newPost = await db.Post.create(createdPost);
-        console.log(newPost);
+
         res.redirect('/posts');
     }
     catch (err) {
@@ -73,7 +72,7 @@ router.post('/:postId', async (req, res) => {
     const createdComment = req.body;
     try{
         const newComment = await db.Comment.create(createdComment);
-        console.log(newComment);
+
         res.redirect(`/posts/${req.params.postId}`);
     }
     catch (err){
@@ -86,11 +85,9 @@ router.post('/:postId', async (req, res) => {
 // update post
 router.put("/:postId", async (req, res) => { 
     try {
-        console.log(req.body)
         const post = await db.Post.findById(req.params.postId);
         
         if (post.likedBy.includes(req.body.currentUserId)) {
-            console.log('user already liked post');
             return res.redirect(`/posts/${req.params.postId}`);
         } else {
             const updatedPost = await db.Post.findByIdAndUpdate(req.params.postId, {
@@ -99,7 +96,6 @@ router.put("/:postId", async (req, res) => {
                     likedBy: req.body.currentUserId
                 }
             });
-            console.log(updatedPost);
 
             res.redirect(`/posts/${req.params.postId}`);
         }

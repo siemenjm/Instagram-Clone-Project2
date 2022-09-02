@@ -65,11 +65,9 @@ async function getUserIds() {
 async function reloadPosts() {
     try {
         const deletedPosts = await db.Post.deleteMany({});
-        console.log('Deleted Posts: ', deletedPosts);
 
         await getUserIds();
         const reloadedPosts = await db.Post.insertMany(seedPosts);
-        console.log('Reloaded Posts: ', reloadedPosts);
     } catch(err) {
         console.log(err);
     }
