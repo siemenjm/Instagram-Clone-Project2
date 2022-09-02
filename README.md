@@ -3,8 +3,10 @@ Instagram is a full-stack web application in which users are able to post images
 
 See Instagram home page: https://www.instagram.com/
 
-## Link To Project
-[Instagram Clone](https://github.com/siemenjm/Instagram-Clone-Project2)
+## Links To Project
+[Instagram Clone - Github](https://github.com/siemenjm/Instagram-Clone-Project2)
+
+[Instagram Clone - Heroku Deployment](https://instagram-clone-713.herokuapp.com/)
 
 ## MVP User Stories (Basic CRUD)
 As an Instagram user, I want to be able to:
