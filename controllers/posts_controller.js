@@ -16,11 +16,6 @@ router.get("/new", (req, res) => {
     res.render('posts/new.ejs', context);
 });
 
-// edit post page
-router.get("/:postId/edit", (req, res) => {
-    res.send('EDIT POST PAGE');
-});
-
 // post show page
 router.get("/:postId", async (req, res) => {
     try {
