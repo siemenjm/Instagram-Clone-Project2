@@ -19,7 +19,13 @@
                     <p class="post-likes"><%= post.likes %> likes</p>
                     <h2 class="post-title"><%= post.title %></h2>
                     <p class="post-date"><%= post.createdAt %></p>
-                    <a href="/posts/<%= post._id %>" class="post-comments-link">See the comments</a>
+                    <% let commentCounter = 0 %>
+                        <% comments.forEach((comment) => { %>
+                            <% if (comment.post._id.toString() === post._id.toString()) { %>
+                                <% commentCounter++ %>
+                            <% } %>
+                        <% }) %>
+                    <a href="/posts/<%= post._id %>" class="post-comments-link">View all <%= commentCounter %> comments</a>
                 </div>
             </div>
         <% }) %>
