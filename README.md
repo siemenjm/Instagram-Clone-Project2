@@ -33,17 +33,17 @@ The relationships between them are as follows (and shown in greater detail in th
 * user (one) -> comments (many)
 * post (one) -> comments (many)
 
-![ERD](https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/updated_ERD.png)
+![ERD](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/updated_ERD.png)
 
 
 ## Wireframe
 Our final project differed from our initial wireframes slightly, but in general we followed the style that Instagram uses. The post index page lets you scroll through all the posts, while the post show page shows more details about the post. (Instagram uses a popup for the post show page).
 
-![Index Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/index_wireframe.png)
+![Index Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/index_wireframe.png)
 
 Show.ejs
 
-![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/john/assets/show_wireframe.png)
+![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/show_wireframe.png)
 
 ## Getting Started
 
