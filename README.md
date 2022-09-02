@@ -61,7 +61,7 @@ To use our Instagram clone, first click on the Register button on the home page,
 
 ![Home Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/home_page.png)
 
-Once logged in, you will see the post index page, listing all of the current posts sorted by newest at the top. You will also notice that since you are now logged in, your username appears at the top of the header, and the navigation links have changed. From this page, you can view the basic details of each post, including post author, post title, likes, and total comments attached to the post. You can also like the post from this page by clicking on the heart icon (it will change to red if you have already liked the post).
+Once logged in, you will see the post index page, listing all of the current posts sorted by newest at the top. You will also notice that since you are now logged in, your username appears at the top of the header, and the navigation links have changed. From this page, you can view the basic details of each post, including post author, post title, likes, the newest comment on the post, and total comments attached to the post. You can also like the post from this page by clicking on the heart icon (it will change to red if you have already liked the post).
 
 ![Post Index Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/post_index_page.png)
 
@@ -116,6 +116,5 @@ router.get('/logout', async (req, res) => {
 We are happy with how the project turned out, but would still like to implement the following:
 * search bar to search for specific users, posts, etc.
 * follow, share, save buttons
-* show last comment on post index page
 * ability to sort posts by likes, comments, etc.
 * style improvements
