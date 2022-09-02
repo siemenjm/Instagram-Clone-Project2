@@ -15,7 +15,6 @@ router.get('/register', (req, res) => {
         message: req.query.message
     };
 
-    console.log(context);
     res.render('auth/register', context);
 });
 
@@ -25,7 +24,6 @@ router.get('/login', (req, res) => {
         message: req.query.message
     };
 
-    console.log(context);
     res.render('auth/login', context);
 });
 
@@ -33,7 +31,6 @@ router.get('/login', (req, res) => {
 router.get('/logout', async (req, res) => {
     try {
         await req.session.destroy();
-        console.log('session destroyed');
         const message = 'You have been logged out.';
         return res.redirect(`/login?message=${message}`);
     } catch(err) {
@@ -62,7 +59,6 @@ router.post('/register', async (req, res) => {
         req.body.password = hash;
 
         const newUser = await db.User.create(req.body);
-        console.log('new user created');
         res.redirect('/login');
     } catch(err) {
         console.log(err);
