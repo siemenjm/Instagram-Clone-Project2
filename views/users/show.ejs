@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head', {page: 'My Profile'})  %>
+    <body>
+    <%- include('../partials/nav')  %>
+
+        <section>
+            <div>
+                <h2 class="title"> <%= user.username %>'s Posts</h2>
+            </div>
+        </section>
+
+    <main class="profile-container">
+        <% posts.forEach((post) => { %>
+            <div class="post-container">
+                <img class="post-image" src="<%= post.image %>" alt="<%= post.title %>">
+                <div class="post-content">
+                    <p class="post-likes"><%= post.likes %> likes</p>
+                    <h2 class="post-title"><%= post.title %></h2>
+                    <p class="post-date"><%= post.createdAt %></p>
+                    <% let commentCounter = 0 %>
+                        <% comments.forEach((comment) => { %>
+                            <% if (comment.post._id.toString() === post._id.toString()) { %>
+                                <% commentCounter++ %>
+                            <% } %>
+                        <% }) %>
+                    <a href="/posts/<%= post._id %>" class="post-comments-link">View all <%= commentCounter %> comments</a>
+                </div>
+            </div>
+        <% }) %>
+    </main>
+    </body>
+

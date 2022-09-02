@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<%- include( '../partials/head.ejs' )  %>
+
+<body>
+    <%- include( '../partials/nav.ejs' )  %>
+
+    <section>
+        <div>
+            <h2 class="title">Edit Comment</h2>
+        </div>
+    </section>
+
+    <main class="container">
+        <div>
+            <form action="/posts/<%= comment.post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST" class="simple-form">
+                <div>
+                    <label for="content">Comment Content</label>
+                    <input type="text" name="content" id="content" value="<%= comment.content %>">
+                </div>
+                <button type="submit">Edit Comment</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

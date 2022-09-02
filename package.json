@@ -1,0 +1,30 @@
+{
+  "name": "instagram-clone-project2",
+  "version": "1.0.0",
+  "description": "Created all branches Main branch - for MVP/major milestones Dev branch - push to when new feature is finished Feature branches - when done with features, merge these with dev branch",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siemenjm/Instagram-Clone-Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siemenjm/Instagram-Clone-Project2/issues"
+  },
+  "homepage": "https://github.com/siemenjm/Instagram-Clone-Project2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.5.3"
+  }
+}

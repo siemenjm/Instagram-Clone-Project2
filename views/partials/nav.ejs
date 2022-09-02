@@ -1,0 +1,23 @@
+<nav>
+    <% if (sessionUser) { %>
+        <div class = "nav-user">
+            <p class="logged-in-user">
+                Logged in as <a href="/users/<%=sessionUser.id%>"> <%= sessionUser.username %> </a>
+            </p>
+        </div>
+    <% } %>
+        
+    <div class="nav-logo">
+        <h1>
+            <a href="/">Instagram Clone</a>
+        </h1>
+    </div>
+        
+    <div class="nav-links">
+        <% if (routes) { %>
+            <% routes.forEach((route) => { %>
+                <a href="<%= route.href %>"><%= route.title %></a>
+            <% }) %>
+        <% } %>
+    </div>
+</nav>

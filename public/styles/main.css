@@ -1,0 +1,368 @@
+:root {
+    --body-background-color: rgb(250, 250, 250);
+    --primary-black: rgb(38, 38, 38);
+    --secondary-gray: rgb(100, 100, 100);
+    --lighter-gray: rgb(200, 200, 200);
+    --dark-green: rgb(32, 87, 0);
+
+    --border-radius: 10px;
+    --post-width: 550px;
+    --profile-post-width: 250px;
+    
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-black);    
+}
+
+body, .container, .post-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 1140px;
+}
+
+.profile-container > div {
+    margin: 0 10px 50px 10px;
+}
+
+.profile-container img {
+    border-radius: 10px 10px 0 0;
+    max-height: var(--profile-post-width);
+}
+
+.profile-container .post-title {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+a:hover {
+    color: var(--secondary-gray);
+}
+
+body {
+    background-color: var(--body-background-color);
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--post-width);
+    padding: 15px 0 5px 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-black);
+}
+
+nav > * {
+    margin: 8px 0;
+}
+
+
+
+nav a, nav p {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-logo > h1 > a {
+    font-family: 'Norican', cursive;
+    font-size: 50px;
+}
+
+.nav-links > * {
+    margin: 0 8px;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.home-image {
+width: 300px;
+margin-right: 100px;
+border-radius: var(--border-radius);
+}
+
+.introduction {
+background-color: white;
+width: 300px;
+text-align: center;
+font-size: 24px;
+font-weight: bold;
+padding: 20px;
+border:var(--primary-black) solid 2px;
+border-radius: 10px;
+}
+
+.introduction > * {
+    margin-bottom: 30px;
+}
+
+.introduction p:last-child {
+    margin-bottom: 0;
+}
+
+.introduction a {
+    background-color: var(--dark-green);
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--primary-black);
+    border-radius: var(--border-radius);
+}
+
+.introduction a:hover {
+    background-color: var(--body-background-color);
+    color: var(--dark-green);
+}
+
+.introduction p:last-of-type {
+    margin-top: 40px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1140px;
+    align-items: center;
+}
+
+.post-container {
+    width: var(--post-width);
+    background-color: white;
+    font-weight: bold;
+    margin-bottom: 50px;
+    border: 1px solid var(--primary-black);
+    border-radius: var(--border-radius);
+}
+
+.profile-container .post-container {
+    width: var(--profile-post-width);
+}
+
+.post-header {
+    padding: 16px 10px;
+}
+
+.post-username > a, .comment-username > a {
+    text-decoration: none;
+}
+
+.post-image {
+    max-height: var(--post-width);
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 10px;
+}
+
+.post-content > * {
+    margin-bottom: 10px;
+}
+
+.post-content h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post-content button {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.post-content i {
+    margin-right: 20px;
+}
+
+.post-content i:hover {
+    color: var(--secondary-gray);
+}
+
+.post-content > div {
+    display: flex;
+    align-items: center;
+}
+
+.post-icons {
+    justify-content: space-between;
+}
+
+.post-icons-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-icons-right i {
+    margin-right: 0;
+}
+
+.post-title {
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.post-date, .comment-date {
+    color: var(--secondary-gray);
+    font-weight: normal;
+}
+
+.add-comment-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid var(--lighter-gray);
+}
+
+.add-comment-form #content {
+    flex-grow: 1;
+    font-size: 16px;
+    border: none;
+    padding: 0 5px;
+}
+
+.add-comment-form button {
+    background-color: var(--body-background-color);
+    padding: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-left: 1px solid var(--lighter-gray);
+}
+
+.add-comment-form button:hover {
+    color: var(--body-background-color);
+    background-color: var(--primary-black);
+}
+
+.comment-li {
+    list-style: none;
+}
+
+.comment-li div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-li div p {
+    margin-right: 10px;
+}
+
+.comment-content {
+    font-weight: normal;
+}
+
+.simple-form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid var(--secondary-gray);
+    border-radius: var(--border-radius);
+}
+
+.simple-form > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.simple-form .hidden {
+    display: none;
+}
+
+.simple-form label {
+    margin-right: 20px;
+}
+
+.simple-form input {
+    font-size: 16px;
+    width: 300px;
+}
+
+.simple-form > button {
+    cursor: pointer;
+    background-color: var(--dark-green);
+    color: white;
+    border: 1px solid var(--primary-black);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.simple-form > button:hover {
+    background-color: white;
+    color: var(--dark-green);
+}
+
+.message {
+    margin: 20px 0;
+}
+
+
+
+
+/*---------- Mobile ---------- */
+@media (max-width: 650px) {
+    .profile-container {
+        width: 100%;
+    }
+   
+    nav {
+        width: 100%;
+    }
+
+    .home-heading {
+        text-align: center;
+    }
+   
+    .home-container {
+        flex-direction: column;
+    }
+      
+    .home-image {
+    margin-right: 0;
+    margin-bottom: 50px;
+    }
+    
+    .post-container, .profile-container > .post-container {
+        width: 90vw;
+    }
+
+    .simple-form input {
+        width: 200px;
+    }
+}
