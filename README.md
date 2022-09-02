@@ -56,7 +56,19 @@ Once logged in, you will see the post index page, listing all of the current pos
 
 ![Post Index Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/post_index_page.png)
 
-From the post index page, you can click on the speech bubble or "View all XX comments" to navigate to that post's show page. This page does not look much different than the index page, but it does allow you to view the comments attached to the post. Also
+From the post index page, you can click on the speech bubble or "View all XX comments" to navigate to that post's show page. This page does not look much different than the index page, but it does allow you to view the comments attached to the post.
+
+If you are the creator of this post, a trashcan icon will appear on the right side of the like and speech bubble icons. Clicking this will delete the post, along with all the comments attached to that post.
+
+If you are the creator of any of the comments on this post, a pen icon and trashcan icon will show up next to your comment, allowing you to either edit or delete the comment. If you edit the comment, "(comment edited)" will be appended to the comment.
+
+![Post Show Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/post_show_page.png)
+
+From both the post index and show pages, any where you see a username (including in the comments section), you can click on that username to take you to the user show page. This page shows a simplified view of all the posts created by that specific user.
+
+![User Show Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/user_show_page.png)
+
+Users can add posts by clicking "Add New Post" in the navbar.
 
 ## Technologies Used
 * EJS
