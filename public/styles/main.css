@@ -214,6 +214,7 @@ border-radius: 10px;
 .post-icons-left {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .post-icons-right i {
