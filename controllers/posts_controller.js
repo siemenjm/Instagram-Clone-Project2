@@ -25,7 +25,7 @@ router.get("/:postId/edit", (req, res) => {
 router.get("/:postId", async (req, res) => {
     try {
         const post = await db.Post.findById(req.params.postId).populate('user').exec();
-        const allComments = await db.Comment.find({post: post._id}).populate('user').exec();
+        const allComments = await db.Comment.find({post: post._id}).sort({createdAt: -1}).populate('user').exec();
         const context = {
             post: post,
             comments: allComments,
@@ -42,8 +42,11 @@ router.get("/:postId", async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const allPosts = await db.Post.find().sort({createdAt: -1}).populate('user').exec();
+        const allComments = await db.Comment.find().populate('post').exec();
+        console.log(allComments)
         const context = {
             posts: allPosts,
+            comments: allComments,
             currentUser: req.session.currentUser
         };
 
