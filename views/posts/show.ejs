@@ -76,7 +76,7 @@
                             <div>
                                 <div>
                                     <p class="comment-username">
-                                        <a href=""><%= comments[i].user.username %></a>
+                                        <a href="/users/<%= comments[i].user._id %>"><%= comments[i].user.username %></a>
                                     </p>
                                     <p class="comment-date"><%= comments[i].createdAt %></p>
                                 </div>
