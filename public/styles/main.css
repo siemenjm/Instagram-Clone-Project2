@@ -277,7 +277,7 @@ border-radius: 10px;
     font-weight: normal;
 }
 
-.new-post-form {
+.simple-form {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -290,7 +290,7 @@ border-radius: 10px;
     border-radius: var(--border-radius);
 }
 
-.new-post-form > div {
+.simple-form > div {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -299,19 +299,20 @@ border-radius: 10px;
     margin-bottom: 20px;
 }
 
-.new-post-form .hidden {
+.simple-form .hidden {
     display: none;
 }
 
-.new-post-form label {
+.simple-form label {
     margin-right: 20px;
 }
 
-.new-post-form input {
+.simple-form input {
     font-size: 16px;
+    width: 300px;
 }
 
-.new-post-form > button {
+.simple-form > button {
     background-color: var(--dark-green);
     color: white;
     border: 1px solid var(--primary-black);
@@ -321,7 +322,11 @@ border-radius: 10px;
     font-weight: bold;
 }
 
-.new-post-form > button:hover {
+.simple-form > button:hover {
     background-color: white;
     color: var(--dark-green);
+}
+
+.message {
+    margin: 20px 0;
 }

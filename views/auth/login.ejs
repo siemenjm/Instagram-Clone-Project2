@@ -4,18 +4,20 @@
     <%- include('../partials/head', {page: 'Login'})  %>
     <body>
         <%- include('../partials/nav')  %>
-        <h1>Login</h1>
+        <h2>Login</h2>
         <% if (message !== undefined) { %>
             <p class="message"><%= message %></p>
         <% } %>
         <section>
-            <form action="/login" method="POST">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="example@domain.com">
-                
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="******">
-
+            <form action="/login" method="POST" class="simple-form">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="example@domain.com">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="******">
+                </div>
                 <button type="submit">Login</button>
             </form>
         </section>
