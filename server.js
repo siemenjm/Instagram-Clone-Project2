@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 
 // 404 WILDCARD ROUTE
 app.get('/*', (req, res) => {
-    res.send('404 PAGE');
+    res.render('404.ejs');
 });
 
 // SERVER
