@@ -1,17 +1,22 @@
 <nav>
-    <div class = "login_screen">
-        <i class="fa fa-instagram"></i>
-        <!-- username in navbar -->
-        <% if (sessionUser) { %>
-            <a href="/users/<%=sessionUser.id%>"> <%= sessionUser.username %> </a>
-            <br>
-        <% } %>
+    <% if (sessionUser) { %>
+        <div class = "nav-user">
+            <p class="logged-in-user">
+                Logged in as <a href="/users/<%=sessionUser.id%>"> <%= sessionUser.username %> </a>
+            </p>
+        </div>
+    <% } %>
+        
+    <div class="nav-logo">
+        <h1>
+            <a href="/">Instagram Clone</a>
+        </h1>
     </div>
-        <!-- dynamically adjusted routes -->
-    <div class="navbar">
+        
+    <div class="nav-links">
         <% if (routes) { %>
             <% routes.forEach((route) => { %>
-                <a href="<%= route.href %>"><%= route.title %>    |</a>
+                <a href="<%= route.href %>"><%= route.title %></a>
             <% }) %>
         <% } %>
     </div>

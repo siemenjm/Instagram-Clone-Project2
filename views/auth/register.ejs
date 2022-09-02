@@ -4,21 +4,24 @@
     <%- include('../partials/head', {page: 'Register'})  %>
     <body>
         <%- include('../partials/nav')  %>
-        <h1>Register New User</h1>
+        <h2>Register New User</h2>
         <% if (message !== undefined) { %>
             <p class="message"><%= message %></p>
         <% } %>
         <section>
-            <form action="/register" method="POST">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Enter your username">
-                
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email">
-                
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="******">
-
+            <form action="/register" method="POST" class="simple-form">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="******">
+                </div>
                 <button type="submit">Create Account</button>
             </form>
         </section>

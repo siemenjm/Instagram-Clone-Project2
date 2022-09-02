@@ -6,18 +6,18 @@
     <%- include( '../partials/nav.ejs' ) %>
     <section>
         <div>
-            <h1 class="title">New Post</h1>
+            <h2 class="title">New Post</h2>
           </div>
         </section>
 
 <main class = "container">
     <div>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" class="simple-form">
             <div>
                 <label for="title">Post Title</label>
                 <input 
                     type="text" 
-                    placeholder="Enter your title" 
+                    placeholder="Enter post title" 
                     name="title" 
                     id="title" />
             </div>
@@ -25,19 +25,18 @@
                 <label for="image">Post Image</label>
                 <input 
                     class="input"
-                    type="text" 
-                    placeholder="Enter your image URL with http://" 
+                    type="url" 
+                    placeholder="http://..." 
                     name="image" 
                     id="image" />
             </div>
-            <div>
+            <div class="hidden">
                 <input 
                     type="hidden" 
                     name="user" 
                     value="<%= currentUser.id %>" />
             </div>
-            <!-- <h1><%= currentUser.id %></h1> -->
-            <button class="button is-info">Create new Post</button>
+            <button type="submit">Create New Post</button>
         </form>
     </div>
 </main>
