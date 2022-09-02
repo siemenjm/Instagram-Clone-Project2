@@ -61,7 +61,9 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: var(--post-width);
-    padding: 15px 0;
+    padding: 15px 0 5px 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-black);
 }
 
 nav > * {
