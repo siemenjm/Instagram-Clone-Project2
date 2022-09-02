@@ -9,21 +9,17 @@
 
     <section>
         <div>
-            <h2 class="title">Comment by: <%=comment.user.username%>
-            </h2>
-
+            <h2 class="title">Edit Comment</h2>
         </div>
     </section>
 
     <main class="container">
         <div>
-            <h4>User: <%= comment.user.username %></h4>
-            <p>Post title: <%= comment.post.title %> </p>
-            <h4>Comment created: <%= comment.createdAt %></h4>
-            <form action="/posts/<%= comment.post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
-                <label for="content">Comment Content</label>
-                <input type="text" name="content" id="content" value="<%= comment.content %>">
-
+            <form action="/posts/<%= comment.post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST" class="simple-form">
+                <div>
+                    <label for="content">Comment Content</label>
+                    <input type="text" name="content" id="content" value="<%= comment.content %>">
+                </div>
                 <button type="submit">Edit Comment</button>
             </form>
         </div>
