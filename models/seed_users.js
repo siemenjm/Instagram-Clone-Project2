@@ -32,11 +32,9 @@ async function encryptPasswords() {
 async function reloadUsers() {
     try {
         const deletedUsers = await db.User.deleteMany({});
-        console.log('Deleted Users: ', deletedUsers);
 
         await encryptPasswords();
         const reloadedUsers = await db.User.insertMany(seedUsers);
-        console.log('Reloaded Users: ', reloadedUsers);
     } catch(err) {
         console.log(err);
     }

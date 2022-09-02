@@ -49,7 +49,7 @@ Our final project differed from our initial wireframes slightly, but in general 
 
 ![Show Page Wireframe](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/show_wireframe.png)
 
-## Keeping up with progress
+## Keeping Up With Progress
 While we are working on the project, we managed our project by listing of all our MVP and highlighted ones that we accomplished together.
 Also used slack as a method of communication to ensure which part of project that each of us were working on, 
 so that we don't have merging issues.
@@ -61,7 +61,7 @@ To use our Instagram clone, first click on the Register button on the home page,
 
 ![Home Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/home_page.png)
 
-Once logged in, you will see the post index page, listing all of the current posts sorted by newest at the top. You will also notice that since you are now logged in, your username appears at the top of the header, and the navigation links have changed. From this page, you can view the basic details of each post, including post author, post title, likes, and total comments attached to the post. You can also like the post from this page by clicking on the heart icon (it will change to red if you have already liked the post).
+Once logged in, you will see the post index page, listing all of the current posts sorted by newest at the top. You will also notice that since you are now logged in, your username appears at the top of the header, and the navigation links have changed. From this page, you can view the basic details of each post, including post author, post title, likes, the newest comment on the post, and total comments attached to the post. You can also like the post from this page by clicking on the heart icon (it will change to red if you have already liked the post).
 
 ![Post Index Page Screenshot](https://github.com/siemenjm/Instagram-Clone-Project2/blob/jared/assets/post_index_page.png)
 
@@ -116,6 +116,5 @@ router.get('/logout', async (req, res) => {
 We are happy with how the project turned out, but would still like to implement the following:
 * search bar to search for specific users, posts, etc.
 * follow, share, save buttons
-* show last comment on post index page
 * ability to sort posts by likes, comments, etc.
 * style improvements
