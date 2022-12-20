@@ -6,7 +6,7 @@ See Instagram home page: https://www.instagram.com/
 ## Links To Project
 [Instagram Clone - Github](https://github.com/siemenjm/Instagram-Clone-Project2)
 
-[Instagram Clone - Heroku Deployment](https://instagram-clone-713.herokuapp.com/)
+[Instagram Clone - Fly.io Deployment](https://instagram-clone-713.fly.dev/)
 
 ## MVP User Stories (Basic CRUD)
 As an Instagram user, I want to be able to:
